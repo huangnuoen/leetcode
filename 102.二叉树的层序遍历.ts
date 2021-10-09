@@ -18,9 +18,26 @@
  *     }
  * }
  */
-
+/**
+ * 层序遍历
+ */
 function levelOrder(root: TreeNode | null): number[][] {
-
-};
+  let res = []
+  let subres = []
+  if (!root) return res
+  let quene: TreeNode[] = [root]
+  while (quene.length) {
+    // 关键，存储当前quene长度
+    const len = quene.length
+    for (let i = 0; i < len; i++) {
+      let node = quene.shift()
+      subres.push(node.val)
+      node.left && quene.push(node.left)
+      node.right && quene.push(node.right)
+    }
+    res.push(subres)
+    subres = []
+  }
+  return res
+}
 // @lc code=end
-
