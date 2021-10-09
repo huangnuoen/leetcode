@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=94 lang=typescript
+ * @lc app=leetcode.cn id=102 lang=typescript
  *
- * [94] 二叉树的中序遍历
+ * [102] 二叉树的层序遍历
  */
 
 // @lc code=start
@@ -19,22 +19,8 @@
  * }
  */
 
-function inorderTraversal(root: TreeNode | null): number[] {
-  let res = []
-  function helper(node) {
-    if (node) {
-      if (node.left) {
-        helper(node.left)
-      }
-      if (node.val) {
-        res.push(node.val)
-      }
-      if (node.right) {
-        helper(node.right)
-      }
-    }
-  }
-  helper(root)
-  return res
-}
+function levelOrder(root: TreeNode | null): number[][] {
+
+};
 // @lc code=end
+
