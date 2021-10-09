@@ -26,6 +26,7 @@
 // }
 /**
  * @description: 递归
+ * 终止条件：l1或者l2为null
  * @param {ListNode} l1
  * @param {ListNode} l2
  */

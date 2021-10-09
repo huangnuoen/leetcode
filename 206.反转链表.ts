@@ -16,6 +16,9 @@
  *     }
  * }
  */
+/**
+ * 重点是指针引用
+ */
 function reverseList(head: ListNode | null): ListNode | null {
   let prev = null
   while(head){
