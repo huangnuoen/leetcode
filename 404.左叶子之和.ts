@@ -21,6 +21,7 @@
 
 function sumOfLeftLeaves(root: TreeNode | null): number {
   let sum = 0
+  if (!root) return sum
   function helper(node: TreeNode, isLeft) {
     if (node.left) {
       helper(node.left, true)
@@ -33,6 +34,6 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
     }
   }
   helper(root, false)
-  return sum;
+  return sum
 }
 // @lc code=end

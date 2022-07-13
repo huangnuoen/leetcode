@@ -20,7 +20,22 @@
  */
 
 function binaryTreePaths(root: TreeNode | null): string[] {
-
-};
+  let result: string[] = []
+  if (!root) return result
+  function helper(node, path: number[]) {
+    if (node.left) {
+      helper(node.left, [...path, node.val])
+    }
+    if (!node.left && !node.right) {
+      path.push(node.val)
+      const str = path.join('->')
+      path.length > 0 && result.push(str)
+    }
+    if (node.right) {
+      helper(node.right, [...path, node.val])
+    }
+  }
+  helper(root, [])
+  return result
+}
 // @lc code=end
-
