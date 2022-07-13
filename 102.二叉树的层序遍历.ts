@@ -7,36 +7,35 @@
 // @lc code=start
 /**
  * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
+ class TreeNode {
+   val: number
+   left: TreeNode | null
+   right: TreeNode | null
+   constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+     this.val = val === undefined ? 0 : val
+     this.left = left === undefined ? null : left
+     this.right = right === undefined ? null : right
+    }
+  }
+  */
 /**
  * 层序遍历
  */
 function levelOrder(root: TreeNode | null): number[][] {
-  let res = []
-  let subres = []
-  if (!root) return res
-  let quene: TreeNode[] = [root]
+  if (!root) return []
+  let res: number[][] = []
+  let quene: TreeNode[] = []
+  quene.push(root)
   while (quene.length) {
-    // 关键，存储当前quene长度
     const len = quene.length
+    const arr: number[] = []
     for (let i = 0; i < len; i++) {
-      let node = quene.shift()
-      subres.push(node.val)
-      node.left && quene.push(node.left)
-      node.right && quene.push(node.right)
+      const node = quene.shift()
+      node.val !== null && arr.push(node.val)
+      node.left !== null && quene.push(node.left)
+      node.right !== null && quene.push(node.right)
     }
-    res.push(subres)
-    subres = []
+    res.push(arr)
   }
   return res
 }
