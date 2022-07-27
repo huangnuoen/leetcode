@@ -24,8 +24,10 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
   if (!root) return sum
   function helper(node: TreeNode, isLeft) {
     if (node.left) {
+      // isLeft标志， 标识这个节点是在左边
       helper(node.left, true)
     }
+    // 左子叶条件：在父节点的左边 且没有左右子节点
     if (isLeft && !node.left && !node.right && node.val) {
       sum += node.val
     }
